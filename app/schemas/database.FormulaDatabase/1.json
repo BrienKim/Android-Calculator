@@ -1,0 +1,46 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "80863063b7312dfdd5cd29265a3c83ef",
+    "entities": [
+      {
+        "tableName": "FORMULAS",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`formula_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `formula` TEXT, `answer` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "formula_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "formula",
+            "columnName": "formula",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "answer",
+            "columnName": "answer",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "formula_id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '80863063b7312dfdd5cd29265a3c83ef')"
+    ]
+  }
+}
